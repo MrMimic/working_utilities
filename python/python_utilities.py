@@ -1,17 +1,6 @@
 #!/usr/bin/env python3
 # coding: utf8
 
-# ==============================================================================
-# Title: UTILITIES
-# Description: Utilities for Bertha.
-# Author: Emeric Dynomant
-# Contact: emeric.dynomant@omictools.com
-# Date: 27/10/2017
-# Language release: python 3.5.2
-# ==============================================================================
-# OmicX, all rights reserved
-# https://omictools.com/
-# ==============================================================================
 
 # IMPORT
 import re
@@ -98,19 +87,19 @@ class Mongo(object):
         """
         ***Returns a MongoDB connection, reached through an SSH tunnel**
         """
-    
+
         server = SSHTunnelForwarder(  # Create SSH tunnel
             (ssh_host, ssh_port),
             ssh_username=ssh_user,
             ssh_pkey=ssh_key_path,
             remote_bind_address=(mongo_host, mongo_port))
         server.start()
-    
+
         # Connect Mongo
         uri = 'mongodb://{}:{}@{}:{}'.format(mongo_user, mongo_password, mongo_host, server.local_bind_port)
         client = MongoClient(uri, authSource=mongo_auth_database)
         connection = client[mongo_database]
-    
+
         return server, connection
 
 
@@ -473,7 +462,7 @@ class Emails(object):
     def send_mail(self, corresponding, file_name, subject, text):
         """
         Uses server connected into the init to send mails
-        
+
         :param corresponding: List of email to send mail to
         :type corresponding: list
         :param file_name: Path to the file to join
