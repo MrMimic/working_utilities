@@ -25,6 +25,19 @@ from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 
 
+class COLORS(object):
+    def __init__(self):
+        pass
+
+    def to_rgb(minimum, maximum, value):
+        minimum, maximum = float(minimum), float(maximum)
+        ratio = 2 * (value-minimum) / (maximum - minimum)
+        b = int(max(0, 255*(1 - ratio)))
+        r = int(max(0, 255*(ratio - 1)))
+        g = 255 - b - r
+        return (r, g, b, 1)
+
+
 class NIH(object):
     """
     NIH's APIs wrapper
