@@ -88,23 +88,6 @@ def get_singular(self, word):
     else:
         return word
 
-def get_grams(tokens: List[str], max_n: int) -> List[List[str]]:
-    """
-    Get all possible ngrams from a list.
-
-    Args:
-        tokens (List[str]): The list of tokens from a sentence.
-        max_n (int): The number of token in a gram.
-
-    Returns:
-        List[List[str]: List of grams.
-    """
-
-    grams = []
-    for i in list(reversed(range(1, max_n))):
-        for gram in list(itertools.combinations(tokens, i)):
-            grams.append(gram)
-    return grams
 
 def tokenize(string: str) -> List[str]:
     """

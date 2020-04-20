@@ -8,7 +8,7 @@ class ListsTest(unittest.TestCase):
     def test_flatten_list(self) -> None:
         list = [["A", "B"], ["C"], "D", "E", "F"]
         flat_list = flatten_list(list_of_list=list)
-        self.assertEquals(flat_list, ["A", "B", "C", "D", "E", "F"])
+        self.assertEqual(flat_list, ["A", "B", "C", "D", "E", "F"])
 
     def test_remove_outliers(self) -> None:
         values = [1, 1.1, 0.8, 0.9, 10, 1.15, 1.05, 1.06]
