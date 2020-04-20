@@ -15,5 +15,3 @@ class TextsTest(unittest.TestCase):
         sentence = "This is a sentence composed of words, cool"
         tokens = tokenize(sentence)
         self.assertEqual(tokens, ['This', 'is', 'a', 'sentence', 'composed', 'of', 'words', ',', 'cool'])
-        grams = get_grams(tokens, 3)
-        grams
