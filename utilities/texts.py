@@ -37,7 +37,7 @@ def get_email(string: str) -> List[str]:
         str(string))
     return emails
 
-def remove_accent(self, string):
+def remove_accent(string: str):
     """
     Remove accents from a string.
 
@@ -70,7 +70,7 @@ def get_plural(word: str) -> str:
     else:
         return "{}s".format(word)
 
-def get_singular(self, word):
+def get_singular(word: str):
     """
     Get singular from of a word in french.
 
@@ -84,7 +84,7 @@ def get_singular(self, word):
     if word.endswith("s"):
         return re.sub(r"s$", "", word)
     elif word.endswith("aux"):
-        return re.sub(r"aux$", "al$", word)
+        return re.sub(r"aux$", "al", word)
     else:
         return word
 

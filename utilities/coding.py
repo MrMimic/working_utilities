@@ -1,12 +1,22 @@
+#!/usr/bin/env python3
+# coding: utf8
+
 from typing import Any, List, Tuple
+
 import networkx as nx
+
 import matplotlib.pyplot as plt
 
 
 class InheritenceGraphe():
-
     def __init__(self, base_class: Any, graph_path: str = None):
+        """
+        Draw a matplotlib Inheritance Graph.
 
+        Args:
+            base_class (Any): Base class of the graph to be drawn.
+            graph_path (str, optional): Output file path for the graph. Defaults to current dir.
+        """
         if graph_path is None:
             self.graph_path: str = f"{self.clean_class_str(base_class)}_inheritence_graph.png"
         else:
@@ -32,12 +42,8 @@ class InheritenceGraphe():
                 self.to_treat = self.to_treat + children
 
             for child in children:
-                self.edges.append(
-                    (
-                        self.clean_class_str(self.to_treat[0]),
-                        self.clean_class_str(child)
-                    )
-                )
+                self.edges.append((self.clean_class_str(self.to_treat[0]),
+                                   self.clean_class_str(child)))
 
             del self.to_treat[0]
 

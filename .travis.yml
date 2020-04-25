@@ -1,0 +1,21 @@
+language: python
+
+# Can provide different OS to try on it
+# Also different version from a given package
+
+python:
+  - "3.7"
+
+# Ugly but setupt.py dont want to install the lib
+before_install:
+  - export PYTHONPATH=$PYTHONPATH:$(pwd)
+
+# command to install dependencies
+install:
+  - pip install -U pip
+  - pip install poetry
+  - poetry install
+
+# command to run tests
+script:
+  - pytest tests/
